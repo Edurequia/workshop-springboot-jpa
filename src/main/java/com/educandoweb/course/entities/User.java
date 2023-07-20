@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +28,7 @@ public class User implements Serializable {
 	private String fone;
 	private String password;
 	
+	@JsonIgnore // o jackson chama o JPA pra trazer os usuarios associados com o pedido, serve para não ficar um looping entre pedidos e usuários,sem ele a aplicação fica trazendo muitos pedidos para muitos usuários
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
 	
