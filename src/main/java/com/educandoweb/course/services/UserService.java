@@ -25,4 +25,7 @@ public class UserService {
 		return obj.get();			   // retornar um valor nulo, dai o obj.get retorna o valor q ta contido
 	}									// no optional, que pode ser o id ou uma exceção por estar vazio
 	
+	public User insert(User obj) {
+		return repository.save(obj);
+	}
 }
