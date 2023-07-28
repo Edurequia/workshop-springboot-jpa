@@ -38,7 +38,6 @@ public class UserResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	
-	
 	// desta forma a requisição da 201
 	@PostMapping
 	public ResponseEntity<User> insert(@RequestBody User obj){
